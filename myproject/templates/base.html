@@ -1,0 +1,54 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="ru">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@300;500;700&family=Roboto&display=swap"
+              rel="stylesheet">
+
+        {% block my_style %}
+        <link rel="stylesheet" href="{% static 'css/style.css' %}">
+        {% endblock %}
+
+        <title>
+            {% block title %}
+            Page title
+            {% endblock %}
+        </title>
+        {% block my_script %}
+        {% endblock %}
+    </head>
+    <body>
+        <nav class="main_menu">
+            <ul class="main_menu__ul">
+                <li>
+                    <a class="main_menu__link" href="/index/" data-title="Главная страница"><img style="width: 35px;" src="{% static 'img/cookbook.png' %}"></a>
+                </li>
+                {% block user %}
+                {% endblock %}
+            </ul>
+        </nav>
+        <header class="header">
+            <h1 class="page_title">
+                {% block header %}
+                Page header
+                {% endblock %}
+            </h1>
+        </header>
+        <content class="content">
+            <div class="content-box">
+                {% block content %}
+                Page content
+                {% endblock %}
+            </div>
+        </content>
+        <footer class="footer">
+            <div class="footer-box">
+                <p class="copyright_text">© 2024 Проект “Сайт рецептов” на Django.</p>
+            </div>
+        </footer>
+    </body>
+</html>

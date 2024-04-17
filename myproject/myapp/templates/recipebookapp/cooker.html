@@ -1,0 +1,57 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block my_style %}
+<link rel="stylesheet" href="{% static 'css/style.css' %}">
+<link rel="stylesheet" href="{% static 'css/recipe_box.css' %}">
+<link rel="stylesheet" href="{% static 'css/recipe_detail.css' %}">
+{% endblock %}
+
+{% block title %}
+Сайт рецептов - личный кабинет
+{% endblock %}
+
+{% block header %}
+Личный кабинет
+{% endblock %}
+
+{% block user %}
+
+{% if user.is_authenticated %}
+<li>
+    <a class="main_menu__link" href="/logout/" data-title="Покинуть кухню"><img style="width: 35px;"
+                                                                                 src="{% static 'img/logout_icon.png' %}"></a>
+</li>
+{% endif %}
+
+{% endblock %}
+
+{% block content %}
+<p>Добро пожаловать в Ваш личный кабинет на сайте рецептов!</p>
+<p>Здесь вы можете сохранять и изменять свои рецепты.
+    Надеемся, что наш сайт станет вашим надежным помощником в кулинарии!</p>
+<a class="recipe_btn" href="/recipe_add/">Новый рецепт</a>
+<div class="recipes_container">
+    {% if recipes %}
+        {% for recipe in recipes %}
+            <div class="recipe_box">
+                <div class="recipe_box__image">
+                    {% if recipe.image %}
+                        <img src="{{ recipe.image.url }}" alt="">
+                    {% else %}
+                        <img src="{% static 'img/default_recipe_img.jpg' %}" alt="">
+                    {% endif %}
+                </div>
+                <div class="recipe_box__text">
+                    <h3>{{ recipe.title }}</h3>
+                    <p>{{ recipe.description }}</p>
+                    <a href="/recipe_detail/{{ recipe.id }}">Подробнее</a>
+                </div>
+            </div>
+        {% endfor %}
+    {% endif %}
+</div>
+
+
+
+{% endblock %}

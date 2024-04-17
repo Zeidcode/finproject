@@ -1,0 +1,69 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block my_style %}
+<link rel="stylesheet" href="{% static 'css/style.css' %}">
+<link rel="stylesheet" href="{% static 'css/recipe_box.css' %}">
+{% endblock %}
+
+{% block title %}
+Сайт рецептов
+{% endblock %}
+
+{% block header %}
+Проект “Сайт рецептов” на Django
+{% endblock %}
+
+{% block user %}
+
+{% if not user.is_authenticated %}
+<li>
+    <a class="main_menu__link" href="/user/" data-title="Доступ на кухню"><img style="width: 35px;"
+                                                                               src="{% static 'img/cooker_unknown.png' %}"></a>
+</li>
+{% endif %}
+
+{% if user.is_authenticated %}
+<li>
+    <a class="main_menu__link" href="/cooker/" data-title="Доступ на кухню"><img style="width: 35px;"
+                                                                               src="{% static 'img/cooker_wellknown.png' %}"></a>
+</li>
+<li>
+    <a class="main_menu__link" href="/logout/" data-title="Покинуть кухню"><img style="width: 35px;"
+                                                                                 src="{% static 'img/logout_icon.png' %}"></a>
+</li>
+{% endif %}
+
+
+{% endblock %}
+
+{% block content %}
+<div>Приветствуем вас на сайте рецептов!
+    Мы рады, что вы выбрали именно наш сайт для поиска новых и вкусных рецептов.
+    У нас вы найдете множество идей для приготовления блюд на любой вкус и для любого повода.
+    В нашем каталоге вы найдете рецепты первых и вторых блюд, закусок, салатов, десертов и многое другое.
+    Мы уверены, что вы найдете здесь то, что ищете.
+    Приятного аппетита и удачных экспериментов на кухне!</div>
+
+<div class="recipes_container">
+    {% if recipes %}
+        {% for recipe in recipes %}
+            <div class="recipe_box">
+                <div class="recipe_box__image">
+                    {% if recipe.image %}
+                        <img src="{{ recipe.image.url }}" alt="">
+                    {% else %}
+                        <img src="{% static 'img/default_recipe_img.jpg' %}" alt="">
+                    {% endif %}
+                </div>
+                <div class="recipe_box__text">
+                    <h3>{{ recipe.title }}</h3>
+                    <p>{{ recipe.description }}</p>
+                    <a href="/recipe_detail/{{ recipe.id }}">Подробнее</a>
+                </div>
+            </div>
+        {% endfor %}
+    {% endif %}
+</div>
+
+{% endblock %}

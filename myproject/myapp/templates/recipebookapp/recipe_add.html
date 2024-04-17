@@ -1,0 +1,82 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block my_style %}
+<link rel="stylesheet" href="{% static 'css/style.css' %}">
+<link rel="stylesheet" href="{% static 'css/recipe_form.css' %}">
+<link rel="stylesheet" href="{% static 'css/popup.css' %}">
+{% endblock %}
+
+{% block title %}
+Сайт рецептов - новый рецепт
+{% endblock %}
+
+{% block my_script %}
+<script type="text/javascript" src="{% static 'js/textFieldCounter.js' %}" defer></script>
+<script type="text/javascript" src="{% static 'js/popup.js' %}" defer></script>
+{% endblock %}
+
+{% block header %}
+{% endblock %}
+
+{% block user %}
+{% if user.is_authenticated %}
+<li>
+    <a class="main_menu__link" href="/cooker/" data-title="Доступ на кухню">
+        <img style="width: 35px;" src="{% static 'img/cooker_wellknown.png' %}">
+    </a>
+</li>
+<li>
+    <a class="main_menu__link" href="/logout/" data-title="Покинуть кухню">
+        <img style="width: 35px;" src="{% static 'img/logout_icon.png' %}">
+    </a>
+</li>
+{% endif %}
+{% endblock %}
+
+{% block content %}
+<form method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+    <div class="form_block">
+        {{ form.title.label }}
+        {{ form.title }}
+        <div class="title-field__counter"></div>
+    </div>
+    <div class="form_block">
+        {{ form.description.label }}
+        {{ form.description }}
+        <div class="description-field__counter"></div>
+    </div>
+    <div class="form_block">
+        {{ form.cooking_steps.label }}
+        {{ form.cooking_steps }}
+        <div class="cooking_steps-field__counter"></div>
+    </div>
+    <div class="form_block last_block">
+        <div class="form_block item_center">
+            {{ form.cooking_time.label }}
+            {{ form.cooking_time }}
+        </div>
+        <div class="form_block item_center">
+            {{ form.image.label }}
+            {{ form.image }}
+        </div>
+        <div class="form_block item_center">
+            {{ form.category.label }}
+            {{ form.category }}
+        </div>
+    </div>
+    <div class="buttons_block_row">
+        <button class="btn open-popUp" type="submit">Сохранить рецепт</button>
+        <a href='/cooker/' class="btn">Отмена</a>
+    </div>
+</form>
+{% if is_completed == True %}
+<div class="popUp show-popUp">
+    <div class="popUp-content">
+        <p>Новый рецепт успешно сохранен</p>
+        <button class="btn close-popUp">ОК</button>
+    </div>
+</div>
+{% endif %}
+{% endblock %}
