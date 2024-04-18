@@ -1,0 +1,118 @@
+@import url('https://fonts.googleapis.com/css?family=Montserrat:400,800');
+
+.recipes_container {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 25px 25px;
+    padding-top: 75px;
+}
+
+.recipes_container .recipe_box {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    width: 250px;
+    max-width: 100%;
+    height: 350px;
+    background: #FFF;
+    border-radius: 20px;
+    transition: 0.5s;
+    box-shadow: 0 35px 80px rgba(0, 0, 0, 0.15);
+}
+
+.recipes_container .recipe_box:hover {
+    height: 400px;
+}
+
+.recipes_container .recipe_box .recipe_box__image {
+    position: absolute;
+    top: 20px;
+    width: 200px;
+    height: 200px;
+    background: #333;
+    border-radius: 12px;
+    overflow: hidden;
+    transition: 0.5s;
+}
+
+.recipes_container .recipe_box:hover .recipe_box__image {
+    top: -100px;
+    scale: 0.75;
+    box-shadow: 0 15px 45px rgba(0, 0, 0, 0.2);
+}
+
+.recipes_container .recipe_box .recipe_box__image img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.recipes_container .recipe_box .recipe_box__text {
+    position: absolute;
+    top: 252px;
+    width: 100%;
+    height: 50px;
+    padding: 0 30px;
+    text-align: center;
+    overflow: hidden;
+    transition: 0.5s;
+}
+
+.recipes_container .recipe_box:hover .recipe_box__text {
+    top: 130px;
+    height: 250px;
+}
+
+.recipes_container .recipe_box .recipe_box__text h3 {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 14px;
+    font-weight: 700;
+    margin-bottom: 35px;
+}
+
+.recipes_container .recipe_box .recipe_box__text p {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 12px;
+    color: #333;
+}
+
+.recipes_container .recipe_box .recipe_box__text a {
+    display: inline-block;
+    position: relative;
+    top: 10px;
+    cursor: pointer;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 14px;
+    color: #ff445c;
+    border: 1px solid;
+    border-radius: 7px;
+    padding: 5px 10px;
+    border-color: #ff445c;
+    background: transparent;
+    transition: all 0.5s
+}
+
+.recipes_container .recipe_box .recipe_box__text a:hover {
+    color: white;
+    background-color: #ff445c;
+}
+
+@media (max-width: 480px) {
+    .recipes_container .recipe_box {
+        width: 220px;
+        border-radius: 15px;
+    }
+
+    .recipes_container .recipe_box .img-recipe_box__image {
+        width: 160px;
+        border-radius: 10px;
+    }
+
+}

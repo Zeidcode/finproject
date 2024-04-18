@@ -1,0 +1,96 @@
+@import url('https://fonts.googleapis.com/css?family=Montserrat:400,800');
+
+.content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    margin: 20px 0 20px;
+}
+
+.content-box {
+    color: #fff;
+    font-size: 14px;
+    width: 80%;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  justify-content: center;
+  padding: 12px 20px;
+  border-radius: 8px;
+  background: #ff445c;
+  box-shadow:0 0 40px -10px #000
+}
+
+.form_block {
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+}
+
+.recipe-form__description,
+.recipe-form__cooking,
+.form_block input {
+    border: none;
+    padding: 10px 10px;
+}
+
+.recipe-form__description {
+    height: 50px;
+}
+
+.recipe-form__cooking {
+    height: 100px;
+}
+
+input[type="time"] {
+    cursor: pointer;
+    border: none;
+    font-size: 14px;
+    padding: 5px;
+    border-radius: 4px;
+    width: 100px;
+}
+
+.last_block {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row;
+    align-items: flex-start;
+}
+
+.item_center {
+    align-items: center;
+}
+
+.buttons_block_row {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.btn {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 14px;
+    cursor: pointer;
+    border: 1px solid;
+    border-radius: 15px;
+    padding: 1rem 1rem;
+    background: transparent;
+    border-color: #fff;
+    color: #fff;
+    display: block;
+    width: 200px;
+    text-align: center;
+    margin: 5px auto;
+    transition: all 0.5s
+}
+
+.btn:hover {
+  color: #ff445c;
+  background-color: white;
+}

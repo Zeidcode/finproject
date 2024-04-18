@@ -1,0 +1,128 @@
+@import url('https://fonts.googleapis.com/css?family=Montserrat:400,800');
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    font-family: 'Montserrat', sans-serif;
+    background: #f6f5f7;
+}
+
+.content {
+    flex: 1;
+    padding-left: 25px;
+    padding-right: 25px;
+}
+
+a {
+    text-decoration: none;
+}
+
+.main_menu {
+    display: flex;
+    justify-content: right;
+    align-items: center;
+    padding-right: 25px;
+}
+
+.main_menu__ul {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 10px;
+    list-style: none;
+    gap: 30px
+}
+
+.main_menu__link {
+    position: relative;
+}
+
+.main_menu__link:hover {
+    cursor: pointer;
+}
+
+.main_menu__link:hover::after {
+    width: 50px;
+    text-align: center;
+    content: attr(data-title);
+    position: absolute;
+    left: -50%; top: 90%;
+    z-index: 1;
+    background: rgba(255,255,230,0.9);
+    font-size: 11px;
+    color: #222222;
+    padding: 5px 10px;
+    border: 1px solid #333;
+    border-radius: 5px;
+ }
+
+.header {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-left: 10px;
+}
+
+.content-box {
+    margin: 10px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.page_title {
+    color: #222222;
+    font-family: 'Comfortaa', sans-serif;
+    font-size: 28px;
+    font-weight: 500;
+}
+
+.title {
+    color: #222222;
+    font-family: 'Comfortaa', sans-serif;
+    font-size: 20px;
+    font-weight: 500;
+}
+
+.subtitle {
+    color: #222222;
+    font-family: 'Comfortaa', sans-serif;
+    font-size: 16px;
+    font-weight: 500;
+}
+
+.text {
+    font-style: normal;
+    font-weight: 300;
+    font-size: 18px;
+    line-height: 30px;
+    color: #7D7987;
+    padding-left: 20px;
+    padding-right: 20px;
+    text-align: justify
+}
+
+.footer-box {
+    padding-top: 10px;
+    padding-bottom: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #222222;
+}
+
+.copyright_text {
+    margin: 0;
+    color: #FBFBFB;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+}
